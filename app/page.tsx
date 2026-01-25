@@ -1,0 +1,14 @@
+import Image from "next/image";
+
+export default function Home() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <main className="flex min-h-screen w-full max-w-2xl flex-col items-center justify-between py-38 bg-white dark:bg-black sm:items-start text-center">
+        <h1 className="text-xl font-extrabold text-zinc-900 dark:text-white sm:text-6xl">
+          This is a demo app to practice cicd with jenkins .
+        </h1>
+       
+      </main>
+    </div>
+  );
+}
