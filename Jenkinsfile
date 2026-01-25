@@ -14,7 +14,7 @@ pipeline {
                 sh 'npm install'
                 // build the nextjs application
                 sh 'npm run build'
-                stash name: 'nextjs-artifacts', includes: '.next/'
+                stash name: 'nextjs-artifacts', includes: '.next/**'
             }
         }
         stage('Test_nextjs') {
