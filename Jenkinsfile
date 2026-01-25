@@ -6,7 +6,9 @@ pipeline {
 
     stages {
         stage('Build_nextjs') {
+            agent { label 'linux-agent-1' }
             steps {
+
                 echo 'Building Next.js application...'
                 // intall all the dependencies
                 sh 'npm install'
