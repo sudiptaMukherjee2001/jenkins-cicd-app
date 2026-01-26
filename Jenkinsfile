@@ -24,9 +24,15 @@ pipeline {
             }
         }
         stage('Deploy_to_staging') {
+            agent { label 'linux-agent-2' }
             steps {
                 //
                 echo 'Deploying to staging environment...'
+                unstash 'nextjs-artifacts'
+                // simulate deployment steps
+                sh 'npm run start &'
+                echo 'Application deployed to staging.'
+
             }
         }
     }
