@@ -31,6 +31,7 @@ pipeline {
                 unstash 'nextjs-artifacts'
                 sh "ls -ltra"
                 sh 'rsync -av .next/ ubuntu@3.239.206.146:/home/ubuntu/apps/jenkins-cicd-app/.next/'
+                sh 'ssh ubuntu@3.239.206.146 "pm2 restart nextjs-app-cicd"'
                 echo 'Application deployed to staging.'
 
             }
