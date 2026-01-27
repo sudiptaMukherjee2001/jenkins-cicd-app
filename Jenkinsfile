@@ -32,7 +32,7 @@ pipeline {
                 // simulate deployment steps
                 sh 'npm run start &'
                 sh "ls -ltra"
-                sh 'ssh ubuntu@3.239.206.146 "whoami" "pwd"'
+                sh 'ssh ubuntu@3.239.206.146 "whoami; pwd"'
                 echo 'Application deployed to staging.'
 
             }
