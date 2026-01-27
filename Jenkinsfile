@@ -29,10 +29,8 @@ pipeline {
                 //
                 echo 'Deploying to staging environment...'
                 unstash 'nextjs-artifacts'
-                // simulate deployment steps
-                sh 'npm run start &'
                 sh "ls -ltra"
-                sh 'ssh ubuntu@3.239.206.146 "whoami; pwd"'
+                sh 'rsync -av .next/ ubuntu@3.239.206.146:/home/ubuntu/apps/jenkins-cicd-app/.next/'
                 echo 'Application deployed to staging.'
 
             }
