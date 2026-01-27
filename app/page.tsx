@@ -8,6 +8,8 @@ export default function Home() {
           This is a demo app to practice cicd with jenkins .
           work in progress...
           developer:  Sudipto Mukherjee
+
+          cicd has been completed for staging environment.
           
         </h1>
        
