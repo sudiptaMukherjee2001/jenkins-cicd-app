@@ -31,6 +31,7 @@ pipeline {
                 unstash 'nextjs-artifacts'
                 // simulate deployment steps
                 sh 'npm run start &'
+                sh "ls -ltra"
                 echo 'Application deployed to staging.'
 
             }
