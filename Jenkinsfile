@@ -38,7 +38,7 @@ pipeline {
                 sh 'rsync -av public/ ubuntu@44.204.165.25 :/home/ubuntu/apps/jenkins-cicd-app/.next/public/'
                 sh 'rsync -av .next/static/ ubuntu@44.204.165.25 :/home/ubuntu/apps/jenkins-cicd-app/.next/standalone/.next/static/'
                 // ssh into the Devlopment/staging server and restart the pm2 process if it exists otherwise start it
-                sh 'ssh ubuntu@44.204.165.25  "cd /home/ubuntu/apps/jenkins-cicd-app/.next/standalone && pm2 describe nextjs-app-staging > /dev/null && pm2 restart nextjs-app-staging || pm2 start server.js --name nextjs-app-staging"'
+                sh 'ssh ubuntu@44.204.165.25"cd /home/ubuntu/apps/jenkins-cicd-app/.next/standalone && pm2 describe nextjs-app-staging > /dev/null && pm2 restart nextjs-app-staging || pm2 start server.js --name nextjs-app-staging"'
                 echo 'Application deployed to staging.'
 
             }
