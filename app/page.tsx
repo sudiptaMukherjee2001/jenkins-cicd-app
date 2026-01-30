@@ -12,6 +12,10 @@ export default function Home() {
           cicd has been completed for staging environment.
           fix the pm2 resetart issue .
         </h1>
+        <h2>
+          Next.js + TypeScript + Tailwind CSS + Jest + Cypress
+          This is the updated code for cicd with rsync and pm2 process management and deployed first to staging server and then to production server.
+        </h2>
        
       </main>
     </div>
