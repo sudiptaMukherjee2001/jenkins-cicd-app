@@ -57,9 +57,9 @@ pipeline {
                 echo 'Deploying to production environment...'
                 unstash 'nextjs-artifacts'
                 sh "ls -ltra"
-                sh 'rsync -av .next/standalone ubuntu@3.237.172.102 :/home/ubuntu/prod-env/.next/'
-                sh 'rsync -av public/ ubuntu@3.237.172.102 :/home/ubuntu/prod-env/.next/public/'
-                sh 'rsync -av .next/static/ ubuntu@3.237.172.102 :/home/ubuntu/prod-env/.next/standalone/.next/static/'
+                sh 'rsync -av .next/standalone ubuntu@3.237.172.102:/home/ubuntu/prod-env/.next/'
+                sh 'rsync -av public/ ubuntu@3.237.172.102:/home/ubuntu/prod-env/.next/public/'
+                sh 'rsync -av .next/static/ ubuntu@3.237.172.102:/home/ubuntu/prod-env/.next/standalone/.next/static/'
                 sh 'ssh ubuntu@3.237.172.102 "cd /home/ubuntu/prod-env/.next/standalone && pm2 describe nextjs-app-prod > /dev/null && pm2 restart nextjs-app-prod || pm2 start server.js --name nextjs-app-prod"'
 
                 echo 'Application deployed to production.'
