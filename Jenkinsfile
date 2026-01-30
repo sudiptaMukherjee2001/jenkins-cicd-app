@@ -34,6 +34,10 @@ pipeline {
                 echo 'Deploying to staging environment...'
                 unstash 'nextjs-artifacts'
                 sh "ls -ltra"
+                sh '''
+                    mkdir -p ~/.ssh
+                    ssh-keyscan -H 44.204.165.25 | tee -a ~/.ssh/known_hosts
+                    '''
                 sh 'rsync -av .next/standalone ubuntu@44.204.165.25:/home/ubuntu/apps/jenkins-cicd-app/.next/'
                 sh 'rsync -av public/ ubuntu@44.204.165.25:/home/ubuntu/apps/jenkins-cicd-app/.next/public/'
                 sh 'rsync -av .next/static/ ubuntu@44.204.165.25:/home/ubuntu/apps/jenkins-cicd-app/.next/standalone/.next/static/'
