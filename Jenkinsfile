@@ -57,6 +57,10 @@ pipeline {
                 echo 'Deploying to production environment...'
                 unstash 'nextjs-artifacts'
                 sh "ls -ltra"
+                     sh '''
+                    mkdir -p ~/.ssh
+                    ssh-keyscan -H 3.237.172.102 | tee -a ~/.ssh/known_hosts
+                    '''
                 sh 'rsync -av .next/standalone ubuntu@3.237.172.102:/home/ubuntu/prod-env/.next/'
                 sh 'rsync -av public/ ubuntu@3.237.172.102:/home/ubuntu/prod-env/.next/public/'
                 sh 'rsync -av .next/static/ ubuntu@3.237.172.102:/home/ubuntu/prod-env/.next/standalone/.next/static/'
